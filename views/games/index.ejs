@@ -16,6 +16,8 @@
 </form>
 <div>
 <% games.forEach(game => { %>
+    <a href="/games/<%= game.id %>">
     <img height="150" width="100" src="<%= game.coverImagePath %>">
+    </a>
 <% }) %>
 </div>

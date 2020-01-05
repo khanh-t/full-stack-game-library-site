@@ -4,6 +4,8 @@
 <% if (gamesByDeveloper.length > 0) { %>
     <h2>Games by Developer</h2>
     <% gamesByDeveloper.forEach(game => { %>
-        <img height="150" width="100" src="<%= game.coverImagePath %>">
+        <a href="/games/<%= game.id %>">
+            <img height="150" width="100" src="<%= game.coverImagePath %>">
+        </a>
     <% }) %>
  <% } %>   
