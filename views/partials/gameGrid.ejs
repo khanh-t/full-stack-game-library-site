@@ -1,0 +1,10 @@
+<% gameCoverClass = locals.large ? 'book-cover-large' : '' %>
+<% gameGridClass = locals.large ? 'book-grid-large' : '' %>
+
+<div class="book-grid <%= gameGridClass %>">
+    <% games.forEach(game => { %>
+        <a href="/games/<%= game.id %>">
+            <img class="book-cover <%= gameCoverClass %>" src="<%= game.coverImagePath %>">
+        </a>
+    <% }) %>
+</div>

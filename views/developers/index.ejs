@@ -1,13 +1,23 @@
-<h2>Search Developers</h2>
+<h2 class="page-header">Search Developers</h2>
 <form action="/developers" method="GET">
-    <label>Name</label>
-    <input type="text" name="name" value="<%= searchOptions.name %>">
-    <button type="submit">Search</button>
+    <div class="form-row">
+        <div class="form-item">
+            <label>Name</label>
+            <input type="text" name="name" value="<%= searchOptions.name %>">
+        </div>
+    </div>
+    <div class="form-row form-row-end">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
 </form>
 <br>
 <% developers.forEach(developer => { %>
-    <div><%= developer.name %></div>
-    <a href="/developers/<%= developer.id %>">View</a>
-    <a href="/developers/<%= developer.id %>/edit">Edit</a>
-    <%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
+    <div class="author-row">
+        <div class="author-name"><%= developer.name %></div>
+        <div class="btn-row">
+            <a class="btn btn-primary" href="/developers/<%= developer.id %>">View</a>
+            <a class="btn btn-primary" href="/developers/<%= developer.id %>/edit">Edit</a>
+            <%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
+        </div>  
+    </div>
 <% }) %>

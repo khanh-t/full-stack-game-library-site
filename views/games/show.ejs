@@ -1,10 +1,21 @@
-<h2><%= game.title %></h2>
-<img width="100" height="150" src="<%= game.coverImagePath %>">
-<div>Developer: <%= game.developer.name %></div>
-<div>Release Date: <%= game.releaseDate.toDateString() %></div>
-<div>Rating: <%= game.rating %></div>
-<div>Description: <%= game.description %></div>
-
-<a href="/games/<%= game.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/games/${game.id}` }) %>
-<a href="/developers/<%= game.developer.id %>">View Developer</a>
+<h2 class="page-header"><%= game.title %></h2>
+<div class="book-details">
+    <div>
+        <img class="book-cover" src="<%= game.coverImagePath %>">
+        <div class="book-details-btn-grid">
+            <a class="btn btn-primary" href="/games/<%= game.id %>/edit">Edit</a>
+            <%- include('../partials/deleteForm', { url: `/games/${game.id}` }) %>
+            <a class="btn btn-primary book-details-author-button" href="/developers/<%= game.developer.id %>">View Developer</a>
+        </div>
+    </div>
+    <div class="book-details-grid">
+        <div class="book-details-label">Developer:</div>
+        <div><%= game.developer.name %></div>
+        <div class="book-details-label">Release Date:</div>
+        <div><%= game.releaseDate.toDateString() %></div>
+        <div class="book-details-label">Rating:</div>
+        <div><%= game.rating %></div>
+        <div class="book-details-label">Description:</div>
+        <div><%= game.description %></div>
+    </div>
+</div>

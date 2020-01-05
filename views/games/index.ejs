@@ -1,23 +1,24 @@
-<h2>Search Games</h2>
+<h2 class="page-header">Search Games</h2>
 <form action="/games" method="GET">
-    <div>
-        <label>Title</label>
-        <input type="text" name="title" value="<%= searchOptions.title %>">
+    <div class="form-row">
+        <div class="form-item">
+            <label>Title</label>
+            <input type="text" name="title" value="<%= searchOptions.title %>">
+        </div>
     </div>
-    <div>
-        <label>Released After</label>
-        <input type="date" name="releasedAfter" value="<%= searchOptions.releasedAfter%>">
+    <div class="form-row">
+        <div class="form-item">
+            <label>Released After</label>
+            <input type="date" name="releasedAfter" value="<%= searchOptions.releasedAfter%>">
+        </div>
+        <div class="form-item">
+            <label>Released Before</label>
+            <input type="date" name="releasedBefore" value="<%= searchOptions.releasedBefore%>">
+        </div>
     </div>
-    <div>
-        <label>Released Before</label>
-        <input type="date" name="releasedBefore" value="<%= searchOptions.releasedBefore%>">
+    <div class="form-row form-row-end">
+        <button class="btn btn-primary" type="submit">Search</button>
     </div>
-    <button type="submit">Search</button>
 </form>
-<div>
-<% games.forEach(game => { %>
-    <a href="/games/<%= game.id %>">
-    <img height="150" width="100" src="<%= game.coverImagePath %>">
-    </a>
-<% }) %>
-</div>
+<br>
+<%- include('../partials/gameGrid', { games: games, large: true }) %>

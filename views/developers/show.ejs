@@ -1,11 +1,9 @@
-<h2><%= developer.name %></h2>
-<a href="/developers/<%= developer.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
+<h2 class="page-header"><%= developer.name %></h2>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/developers/<%= developer.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
+</div>
 <% if (gamesByDeveloper.length > 0) { %>
-    <h2>Games by Developer</h2>
-    <% gamesByDeveloper.forEach(game => { %>
-        <a href="/games/<%= game.id %>">
-            <img height="150" width="100" src="<%= game.coverImagePath %>">
-        </a>
-    <% }) %>
+    <h2 class="page-header">Games by Developer</h2>
+    <%- include('../partials/gameGrid', { games: gamesByDeveloper }) %>
  <% } %>   
