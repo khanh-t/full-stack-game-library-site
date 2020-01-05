@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Developers = require('../models/developers')
+const Games = require('../models/game')
 
 // All Developers Route
 router.get('/', async (req, res) => {
@@ -31,13 +32,68 @@ router.post('/', async ( req, res) => {
     })
     try {
         const newDeveloper = await developer.save()
-        // res.redirect(`developers/${newDeveloper.id}`)
-        res.redirect('developers')
+        res.redirect(`developers/${newDeveloper.id}`)
     } catch {
         res.render('developers/new', {
             developer: developer,
             errorMessage: 'Error creating developer'
         })
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const developer = await Developers.findById(req.params.id)
+        const games = await Games.find({ developer: developer.id }).limit(6).exec()
+        res.render('developers/show', {
+            developer: developer,
+            gamesByDeveloper: games
+        })
+    } catch {
+        res.redirect('/')
+    }
+})
+
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const developer = await Developers.findById(req.params.id)
+        res.render('developers/edit', { developer: developer })
+    } catch {
+        res.redirect('/developers')
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    let developer
+    try {
+        developer = await Developers.findById(req.params.id)
+        developer.name = req.body.name
+        await developer.save()
+        res.redirect(`/developers/${developer.id}`)
+    } catch {
+        if (developer == null) {
+            res.redirect('/')
+        } else {
+            res.render('developers/edit', {
+                developer: developer,
+                errorMessage: 'Error updating developer'
+            })
+        }
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    let developer
+    try {
+        developer = await Developers.findById(req.params.id)
+        await developer.remove()
+        res.redirect('/developers')
+    } catch {
+        if (developer == null) {
+            res.redirect('/')
+        } else {
+            res.redirect(`/developers/${developer.id}`)
+        }
     }
 })
 

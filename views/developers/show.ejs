@@ -1,0 +1,9 @@
+<h2><%= developer.name %></h2>
+<a href="/developers/<%= developer.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
+<% if (gamesByDeveloper.length > 0) { %>
+    <h2>Games by Developer</h2>
+    <% gamesByDeveloper.forEach(game => { %>
+        <img height="150" width="100" src="<%= game.coverImagePath %>">
+    <% }) %>
+ <% } %>   

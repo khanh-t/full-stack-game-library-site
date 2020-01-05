@@ -7,4 +7,7 @@
 <br>
 <% developers.forEach(developer => { %>
     <div><%= developer.name %></div>
+    <a href="/developers/<%= developer.id %>">View</a>
+    <a href="/developers/<%= developer.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm', { url: `/developers/${developer.id}` }) %>
 <% }) %>
