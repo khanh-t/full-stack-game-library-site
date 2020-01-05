@@ -16,19 +16,19 @@
 </div>
 <div>
 <label>Release Date</label>
-<input type="date" name="releaseDate" 
+    <input type="date" name="releaseDate" 
         value="<%= game.releaseDate == null ? '' :
         game.releaseDate.toISOString().split('T')[0] %>">
 </div>
 <div>
-<label>Rating</label>
-<input type="number" name="rating" min="1" value="<%= game.rating %>">
+    <label>Rating</label>
+    <input type="number" name="rating" min="1" value="<%= game.rating %>">
 </div>
 <div>
-<label>Cover</label>
-<input type="file" name="cover">
+    <label>Cover</label>
+    <input type="file" name="cover" class="filepond">
 </div>
 <div>
-<label>Description</label>
-<textarea name="description"><% game.description %></textarea>
+    <label>Description</label>
+    <textarea name="description"><% game.description %></textarea>
 </div>

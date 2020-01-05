@@ -1,7 +1,4 @@
 const mongoose = require('mongoose')
-const path = require('path')
-
-const coverImageBasePath = 'uploads/gameCovers'
 
 const gamesSchema = new mongoose.Schema({
     title: {
@@ -24,9 +21,13 @@ const gamesSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    coverImageName: {
-        type: String,
+    coverImage: {
+        type: Buffer,
         require: true
+    },
+    coverImageType: {
+        type: String,
+        required: true
     },
     developer: {
         type: mongoose.Schema.Types.ObjectId,
@@ -36,10 +37,9 @@ const gamesSchema = new mongoose.Schema({
 })
 
 gamesSchema.virtual('coverImagePath').get(function() {
-    if (this.coverImageName != null) {
-        return path.join('/', coverImageBasePath, this.coverImageName)
+    if (this.coverImage != null && this.coverImageType != null) {
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
     }
 })
 
 module.exports = mongoose.model('Games', gamesSchema)
-module.exports.coverImageBasePath = coverImageBasePath
