@@ -1,4 +1,4 @@
-# game-site
+# full-stack-game-library-site
 Full stack project.
 
 A personal game library site built on Node.js/Express with EJS templating engine. Uses MongoDB.
