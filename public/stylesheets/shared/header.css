@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
+
 :root {
-  --nav-title-font-size: 3rem;
+  --nav-title-font-size: 2rem;
   --nav-title-font-weight: bold;
   --nav-link-font-weight: 300;
+}
+
+header {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #24252A;
 }
 
 .header-title {
@@ -9,6 +18,8 @@
   text-decoration: none;
   font-size: var(--nav-title-font-size);
   font-weight: var(--nav-title-font-weight);
+  font-family: "Rubik", sans-serif;
+  transition: all 0.3s ease 0s;
 }
 
 .header-nav {
@@ -16,6 +27,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
   margin-bottom: 5rem;
 }
 
@@ -34,6 +47,7 @@
   color: var(--color-text-light);
   font-weight: var(--nav-link-font-weight);
   padding: 1rem;
+  transition: all 0.3s ease 0s;
 }
 
 .header-nav li a:hover, .header-title:hover {
