@@ -14,7 +14,7 @@ header {
 }
 
 .header-title {
-  color: var(--color-text-light);
+  color: white;
   text-decoration: none;
   font-size: var(--nav-title-font-size);
   font-weight: var(--nav-title-font-weight);
@@ -44,12 +44,12 @@ header {
 
 .header-nav li a {
   text-decoration: none;
-  color: var(--color-text-light);
+  color: white;
   font-weight: var(--nav-link-font-weight);
   padding: 1rem;
   transition: all 0.3s ease 0s;
 }
 
 .header-nav li a:hover, .header-title:hover {
-  color: white;
+  color: #0088a9;
 }
