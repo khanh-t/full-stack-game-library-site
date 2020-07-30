@@ -1,7 +1,7 @@
 # full-stack-game-library-site
-Full stack project.
+Personal full stack project. 
 
-A personal game library site built on Node.js/Express with EJS templating engine. Uses MongoDB.
-Adheres to MVC and RESTful design, also supports file uploading.
+An API that enables me to save game information/summaries and upload related box arts onto a MongoDB database. Built on Node.js/Express with EJS templating engine.
+Adheres to MVC and RESTful design.
 
 Deployed on Heroku: https://koto-game-site.herokuapp.com/
